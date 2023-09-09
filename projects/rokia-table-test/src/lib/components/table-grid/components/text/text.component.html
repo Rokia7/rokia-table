@@ -1,0 +1,6 @@
+<div class="text-table flex-row-center-center" style="width: 100%; height: 100%;" [formGroup]="form">
+  <span style="width: 100%; text-align: center;" *ngIf="!isEdit; else inputText">{{text}}</span>
+  <ng-template #inputText>
+    <input matInput style="width: 50%; text-align: center;" [type]="type" formControlName="text">
+  </ng-template>
+</div>

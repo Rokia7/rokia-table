@@ -1,0 +1,32 @@
+:root[theme=light] {
+  // Main color
+  --bg-main-color: #fee1df;
+  --bg-main-color-text: #544f4f;
+
+  // Header color
+  --header-color: #fec4c0;
+  --header-color-text: #544f4f;
+
+  // Button color
+  --btn-color: #fe938c;
+  --btn-color-text: #fff;
+
+  // Dialog color
+  --dialog-color: #fec4c0;
+  --dialog-color-text: #544f4f;
+
+  // Border color
+  --border-color: rgba(0,0,0,0.3);
+
+  // Footer color
+  --footer-color: #fec4c0;
+  --footer-color-text: #544f4f;
+
+  // Admin main
+  --bg-admin-main-color: #0097a7;
+  --bg-admin-main-color-text: #fff;
+
+  // Admin button
+  --btn-admin-color: #c63f17;
+  --btn-admin-color-text: #fff;
+}

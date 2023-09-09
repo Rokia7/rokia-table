@@ -1,0 +1,88 @@
+<div class="warpper-table">
+  <div class="warpper-content">
+    <div class="warpper-columns" *ngIf="!isGroup; else group">
+      <div class="rows header" [ngStyle]="{'grid-template-columns': lengthcol}">
+        <div class="flex-row-center-center" *ngFor="let property of dataMapping">
+          <div class="flex-row-center-center" *ngIf="property.id === 'isCheck'; else text">
+            <check-box [checkValue]="(objSubCheckStatus['All'].isCheck | async)"
+                      [isIndeterminate]="(objSubCheckStatus['All'].isIndeterminate | async)"
+                      (checkValueChange)="selectAllItem($event, 'All')">
+            </check-box>
+          </div>
+  
+          <ng-template #text>
+            <p >
+              {{property.name}}
+            </p>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="rows" [ngStyle]="{'grid-template-columns': lengthcol}" *ngFor="let item of (items$ | async)">
+        <ng-template ngFor let-mappping [ngForOf]="dataMapping" let-i=index>
+          <ng-container [ngSwitch]="mappping.typeProperty">
+            <ng-container *ngSwitchCase="'checkBox'">
+              <check-box [checkValue]="item[mappping.id]" (checkValueChange)="selectItem($event, item, 'All')"></check-box>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'text'">
+              <app-text [textValue]="item[mappping.id]"></app-text>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'number'">
+              <app-text [textValue]="item[mappping.id]" type="number" [isEdit]="true"></app-text>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'image'">
+              <app-image [image]="item[mappping.id]"></app-image>
+            </ng-container>
+          </ng-container>
+        </ng-template>
+      </div>
+    </div>
+
+    <ng-template #group>
+      <div class="warpper-columns groups" *ngFor="let key of (groupsKey$ | async)">
+        <div class="title flex-row-center-center" translate>{{key}}</div>
+        <div class="rows header" [ngStyle]="{'grid-template-columns': lengthcol}">
+          <div class="flex-row-center-center" *ngFor="let property of dataMapping">
+            <div class="flex-row-center-center" *ngIf="property.id === 'isCheck'; else text">
+              <check-box [checkValue]="(objSubCheckStatus[key].isCheck | async)"
+                        [isIndeterminate]="(objSubCheckStatus[key].isIndeterminate | async)"
+                        (checkValueChange)="selectAllItem($event, key)">
+              </check-box>
+            </div>
+
+            <ng-template #text>
+              <p >
+                {{property.name}}
+              </p>
+            </ng-template>
+          </div>
+        </div>
+
+        <div class="rows" [ngStyle]="{'grid-template-columns': lengthcol}" *ngFor="let item of getListByObjKey((groupsData$| async), key)">
+          <ng-template ngFor let-mappping [ngForOf]="dataMapping" let-i=index>
+            <ng-container [ngSwitch]="mappping.typeProperty">
+              <ng-container *ngSwitchCase="'checkBox'">
+                <check-box [checkValue]="item[mappping.id]" (checkValueChange)="selectItem($event, item, key)"></check-box>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'text'">
+                <app-text [textValue]="item[mappping.id]"></app-text>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'number'">
+                <app-text [textValue]="item[mappping.id]" type="number" [isEdit]="true"></app-text>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'image'">
+                <app-image [image]="item[mappping.id]"></app-image>
+              </ng-container>
+            </ng-container>
+          </ng-template>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

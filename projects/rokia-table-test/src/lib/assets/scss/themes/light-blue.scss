@@ -1,0 +1,25 @@
+:root[theme=light] {
+  // LIGHT MODE
+    // Main color
+    --bg-main-color: #e1f5fe;
+    --bg-main-color-text: #544f4f;
+
+    // Header color
+    --header-color: #b3e5fc;
+    --header-color-text: #544f4f;
+
+    // Button color
+    --btn-color: #03a9f4;
+    --btn-color-text: #fff;
+
+    // Dialog color
+    --dialog-color: #b3e5fc;
+    --dialog-color-text: #544f4f;
+
+    // Border color
+    --border-color: rgba(0,0,0,0.3);
+
+    // Footer color
+    --footer-color: #b3e5fc;
+    --footer-color-text: #544f4f;
+}

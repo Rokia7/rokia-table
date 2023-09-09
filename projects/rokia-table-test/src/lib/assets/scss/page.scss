@@ -1,0 +1,208 @@
+.child-content {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+
+  .wrapper-product {
+    width: 100%;
+    height: max-content;
+    min-height: calc(100% - 145px - 58px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card {
+      width: 436px;
+      height: 590px;
+      min-width: 332px;
+      min-height: 427px;
+      margin: 0 12px 24px 12px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
+
+      .wrapper-slides {
+        width: 100%;
+        height: 68%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+
+        .slides {
+          width: calc(100% - 24px);
+          height: calc(100% - 24px);
+          border-radius: 12px;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            user-select: none;
+          }
+        }
+
+        .label {
+          z-index: 40;
+          position: absolute;
+          top: 24px;
+          left: 24px;
+          padding: 12px;
+          background: rgba(0, 0, 0, 0.23);
+          color: #fff;
+          border-radius: 12px;
+          font-size: 1.2em;
+          font-weight: 600;
+          user-select: none;
+        }
+
+        .infomation {
+          @extend .favorite;
+          width: max-content !important;
+          top: -24px;
+          right: -24px;
+          left: auto !important;
+          opacity: 0;
+          transition: all ease-in-out 200ms !important;
+
+          span {
+            margin-left: 8px;
+            width: max-content;
+            opacity: 1;
+          }
+
+          .mat-icon {
+            margin-left: 8px;
+          }
+        }
+
+        .favorite {
+          width: 24px;
+          height: 24px;
+          z-index: 40;
+          position: absolute;
+          bottom: 24px;
+          left: 24px;
+          padding: 8px;
+          background: rgba(0, 0, 0, 0.23);
+          color: #fff;
+          border-radius: 12px;
+          font-size: 1.2em;
+          font-weight: 600;
+          user-select: none;
+          cursor: pointer;
+        }
+
+        .favorite-selected {
+          color: var(--btn-color);
+        }
+
+        &:hover {
+          .infomation {
+            top: 24px;
+            right: 24px;
+            opacity: 1;
+          }
+        }
+      }
+
+      .wrapper-info {
+        width: 100%;
+        height: max-content;
+        
+        .name {
+          margin: 0 12px;
+          width: calc(100% - 24px);
+          white-space: nowrap;
+          overflow: hidden;
+          font-size: 2em;
+          font-weight: 600;
+          text-overflow: ellipsis;
+          text-align: center;
+          cursor: pointer;
+        }
+  
+        .type {
+          width: 100%;
+          padding: 12px 0;
+          font-size: 1.5em;
+          font-weight: 600;
+          color: rgba(0, 0, 0, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+  
+        .wrapper-prices {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5em;
+  
+          span {
+            padding: 0 4px;
+          }
+        }
+      }
+
+      .wrapper-button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .button {
+          padding: 12px;
+          margin: 12px 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--btn-color);
+          border-radius: 12px;
+          cursor: pointer;
+          user-select: none;
+          color: #fff;
+
+          mat-icon {
+            padding: 0 6px;
+          }
+
+          span {
+            padding: 0 6px;
+          }
+          
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+@media only screen and (max-width: 600px) {
+  .name {
+    font-size: 2em !important;
+  }
+
+  .type {
+    font-size: 1.5em !important;
+  }
+}

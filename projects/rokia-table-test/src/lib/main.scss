@@ -1,0 +1,14 @@
+// All z-index must be less than 55 if you want to hide under backdrop and show on backdrop is greater than 55.
+@import "./assets/scss/config-material-angular.scss";
+@import "./assets/scss/button-animation.scss";
+@import "./assets//scss/swiper.scss";
+@import "./assets/scss/flex-global.scss";
+@import "./assets/scss/page.scss";
+@import "./assets/scss/dialog-detail.scss";
+@import "./assets/scss/dialog-confirm.scss";
+@import "./assets/scss/container-login.scss";
+@import "./assets/scss/icon-svg.scss";
+
+// Theme
+@import "./assets/scss/themes/light.scss";
+@import "./assets/scss/themes/dark.scss";

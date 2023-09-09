@@ -1,0 +1,184 @@
+$text-color: var(--header-color-text) !important;
+$btn-color: var(--btn-color) !important;
+$border-color: var(--border-color) !important;
+
+.mat-form-field {
+  font-family: 'ReadexPro', sans-serif !important;
+  font-size: 1.2em;
+  font-weight: 500 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: $btn-color;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: $btn-color;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: $btn-color;
+}
+
+.mat-form-field-label {
+  color: $text-color;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: $border-color;
+}
+
+.mat-select-value {
+  color: $text-color;
+}
+
+.mat-select-arrow {
+  color: $text-color;
+}
+
+.mat-input-element {
+  color: $text-color;
+
+  &::placeholder {
+    color: $text-color;
+    opacity: 1;
+  }
+}
+
+.mat-checkbox-label {
+  color: $text-color;
+}
+
+.mat-checkbox-frame {
+  border-color: $border-color;
+}
+
+.mat-select {
+  font-family: 'ReadexPro', sans-serif;
+}
+
+.mat-option {
+  font-family: 'ReadexPro', sans-serif;
+}
+
+.mat-checkbox {
+  font-family: 'ReadexPro', sans-serif;
+}
+
+.mat-checkbox-checked {
+  .mat-checkbox-background {
+    background: $btn-color;
+  }
+}
+
+.mat-chip {
+  font-size: 1em;
+}
+
+.mat-chip.mat-standard-chip {
+  background: $btn-color;
+  color: $text-color;
+  border-radius: 12px;
+}
+
+.mat-chip.mat-standard-chip.mat-icon {
+  color: $text-color;
+}
+
+.mat-standard-chip {
+  height: max-content !important;
+}
+
+.mat-option {
+  font-size: 1.2em;
+  color: $text-color;
+}
+
+.mat-option-text {
+  display: flex !important;
+  align-items: center;
+}
+
+.mat-menu-content {
+  background: var(--header-color);
+  transition: all ease-in-out 400ms;
+  
+  .item-menu {
+    font-family: 'ReadexPro', sans-serif !important;
+    color: $text-color;
+
+    .mat-icon {
+      padding: 6px;
+      color: $text-color;
+    }
+
+    svg {
+      color: $text-color;
+    }
+  }
+
+  .favorite-selected {
+    .mat-icon {
+      color: var(--btn-color) !important;
+    }
+  }
+}
+
+.select-btn-icon {
+  .mat-icon {
+    padding: 6px;
+    border-radius: 8px;
+    background: $btn-color;
+    color: $text-color;
+  }
+}
+
+.custom-option-icon {
+  background: rgba(0, 0, 0, 0.12);
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.mat-badge-content {
+  padding: 3px 3px !important;
+  background: var(--btn-color) !important;
+  font-size: 1.2em;
+  transition: all ease-in-out 400ms;
+}
+
+.mat-select-panel {
+  background: var(--header-color);
+  transition: all ease-in-out 400ms;
+}
+
+.mat-autocomplete-trigger {
+  &::placeholder {
+    color: $text-color;
+  }
+}
+
+.mat-autocomplete-panel {
+  @extend .mat-select-panel;
+
+  .mat-option-text {
+    color: $text-color;
+  }
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  background: var(--bg-main-color);
+}
+
+@media only screen and (min-width: 200px) {
+  .mat-dialog-container {
+    border-radius: 0 !important;
+  } 
+}
+
+@media only screen and (min-width: 1200px) {
+  .mat-dialog-container {
+    border-radius: 12px !important;
+  } 
+}

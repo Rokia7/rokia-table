@@ -1,0 +1,4 @@
+<div class="warpper-image-loader">
+  <canvas #blurImage class="blur-image" [id]="id+'-canv'"></canvas>
+  <img #image class="image" loading="lazy" [src]="url" (load)="catchLoad(blurImage, image)" (error)="catchError($event)">
+</div>
