@@ -1,8 +1,11 @@
 /*
  * Public API Surface of rokia-table
  */
-// components
+// Components
 export { TableGridComponent } from './lib/components/table-grid/table-grid.component';
 
-// modules
+// Services
+export { BlurhashImageService } from './lib/services/blurhash-image.service';
+
+// Modules
 export { RokiaTableModule } from './lib/rokia-table.module';
