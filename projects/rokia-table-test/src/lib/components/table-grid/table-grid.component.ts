@@ -5,6 +5,8 @@ import { title } from '../..//utils/utils';
 import { BehaviorSubject, debounceTime, of } from 'rxjs';
 import { Mapping } from './interfaces/data_mapping';
 
+
+
 @Component({
   selector: 'rokia-table',
   templateUrl: './table-grid.component.html',
@@ -12,9 +14,25 @@ import { Mapping } from './interfaces/data_mapping';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableGridComponent implements OnInit {
+    /**
+   * Data object items.
+   */
   @Input('lists') items$ = new BehaviorSubject<any[]>([]);
+    /**
+   * Status Group by property.
+   */
   @Input('isGroup') isGroup = false;
+      /**
+   * Property group data.
+   */
+  @Input('propertyGroup') propertyGroup = '';
+    /**
+   * Mapping data type.
+   */
   @Input('dataMapping') dataMapping: Mapping[] = [];
+    /**
+   * Output selected data.
+   */
   @Output('selected') selected: EventEmitter<any> = new EventEmitter();
 
   lengthcol = '';
@@ -42,8 +60,10 @@ export class TableGridComponent implements OnInit {
 
     this.length(this.dataMapping.length);
     this.items$.subscribe(async (res) => {
-      const newGroupData = await this.dataByGroupProperty('type');
-      this.groupsData$.next(newGroupData);
+      if (this.isGroup) {
+        const newGroupData = await this.dataByGroupProperty(this.propertyGroup);
+        this.groupsData$.next(newGroupData);
+      }
     });
 
     this.selected$.pipe(debounceTime(300)).subscribe(res => {
