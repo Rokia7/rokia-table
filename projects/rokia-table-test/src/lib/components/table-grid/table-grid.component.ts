@@ -54,9 +54,8 @@ export class TableGridComponent implements OnInit {
       return item;
     })));
 
-    if (!this.dataMapping || this.dataMapping.length === 0) {
-      this.dataMapping = this.generateProperty();
-    }
+    if (!this.dataMapping || this.dataMapping.length === 0) this.dataMapping = this.generateProperty();
+    if (!this.propertyGroup || this.propertyGroup === '') this.propertyGroup = this.dataMapping[0].id;
 
     this.length(this.dataMapping.length);
     this.items$.subscribe(async (res) => {
@@ -67,7 +66,6 @@ export class TableGridComponent implements OnInit {
     });
 
     this.selected$.pipe(debounceTime(300)).subscribe(res => {
-      console.log('selected$', res);
       this.selected.emit(res);
     });
 
