@@ -55,7 +55,7 @@ export class TableGridComponent implements OnInit {
     })));
 
     if (!this.dataMapping || this.dataMapping.length === 0) this.dataMapping = this.generateProperty();
-    if (!this.propertyGroup || this.propertyGroup === '') this.propertyGroup = this.dataMapping[0].id;
+    if (!this.propertyGroup || this.propertyGroup === '') this.isGroup = false;
 
     this.length(this.dataMapping.length);
     this.items$.subscribe(async (res) => {
